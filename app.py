@@ -253,6 +253,7 @@ sqe_agent_html_template = """
 
                 <button
                     type="submit"
+                    id="submitButton"
                     class="block mx-auto bg-gray-900 text-white py-0.5 px-2 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 transition-colors duration-300 font-medium text-sm"
                 >
                     Start Running
@@ -281,6 +282,15 @@ sqe_agent_html_template = """
             const textFieldValue = document.getElementById('textField').value;
             const baseUrl = 'https://piglet-becoming-gar.ngrok-free.app';
 
+            // Get the Submit button
+            const submitButton = document.getElementById('submitButton');
+            // Disable the button to prevent multiple clicks
+            submitButton.disabled = true;
+            submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+
+            // Change the button text as requested
+            submitButton.textContent = "Code Analysis in Progress !!";
+
             // Get the message area element
             const messageArea = document.getElementById('messageArea');
 
@@ -298,9 +308,9 @@ sqe_agent_html_template = """
             window.open(url.toString(), '_self');
 
             // Optionally hide the message after a short delay
-            setTimeout(() => {
-                messageArea.classList.add('hidden');
-            }, 3000); // Hide after 3 seconds
+            // setTimeout(() => {
+            //    messageArea.classList.add('hidden');
+            // }, 3000); // Hide after 3 seconds
         });
     </script>
 </body>
